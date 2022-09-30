@@ -21,7 +21,9 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 // styles for this kit
 import "assets/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.css";
 import "assets/scss/now-ui-kit.scss?v=1.5.0";
+import "assets/scss/now-ui-dashboard.scss?v1.5.0";
 import "assets/demo/demo.css?v=1.5.0";
 import "assets/demo/nucleo-icons-page-styles.css?v=1.5.0";
 // pages for this kit
@@ -30,6 +32,8 @@ import NucleoIcons from "views/NucleoIcons.js";
 import LoginPage from "views/examples/LoginPage.js";
 import LandingPage from "views/examples/LandingPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
+
+import AdminLayout from "layouts/Admin.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -54,6 +58,7 @@ root.render(
           path="/login-page"
           render={(props) => <LoginPage {...props} />}
         />
+        <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
         <Redirect to="/index" />
         <Redirect from="/" to="/index" />
       </Switch>
